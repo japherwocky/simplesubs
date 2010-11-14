@@ -1,0 +1,86 @@
+@import "type.css";
+@import "color.css";
+
+/* =Reset default browser CSS. Based on work by Eric Meyer: http://meyerweb.com/eric/tools/css/reset/index.html
+-------------------------------------------------------------- */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q {	quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+/* remember to define focus styles! */
+:focus { outline: 0; }
+/* remember to highlight inserts somehow! */
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+/* tables still need 'cellspacing="0"' in the markup */
+table {	border-collapse: collapse; border-spacing: 0; }
+a { text-decoration: none }
+
+
+
+/*
+-------------  
+Layout
+-------------
+*/
+body {text-align: center}
+.wrapper { width: 940px; margin: 0 auto; text-align: left; position:relative }
+
+
+/* Sticky footer technique - based upon http://www.cssstickyfooter.com/ */
+* {margin:0;padding:0;} 
+
+/* must declare 0 margins on everything, also for main layout components use padding, not 
+vertical margins (top and bottom) to add spacing, else those margins get added to total height 
+and your footer gets pushed down a bit more, creating vertical scroll bars in the browser */
+
+html, body { height: 100%; }
+.wrapper { min-height: 100%; }
+#main { overflow:auto;	padding-bottom: 150px;}  /* must be same height as the footer */
+#footer { position: relative; margin-top: -150px; /* negative value of footer height */ height: 150px; clear:both; background: #777 }
+
+/*Opera Fix*/
+body:before { content:""; height:100%; float:left; width:0; margin-top:-32767px; }
+
+/* IMPORTANT
+You also need to include this conditional style in the <head> of your HTML file to feed this style to IE 6 and lower and 8 and higher.
+
+<!--[if !IE 7]>
+	<style type="text/css">
+		.wrapper {display:table;height:100%}
+	</style>
+<![endif]-->
+*/
+
+#widget1, #widget2, #widget3 { width: 300px; float: left }
+
+.home #main { position: relative}
+
+/*
+-------------  
+CSS Libraries
+-------------
+*/
+
+/* Default reusable CSS properties */
+
+/* Default WordPress properties */
+
+
+/*
+------------
+Type
+------------
+*/
+
+
+
+
+/*
+ ------------
+ Color
+ ------------
+*/
+
+html { background: url(../images/background.jpg) repeat-x #f2f2f2 }

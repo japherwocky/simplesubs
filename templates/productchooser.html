@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    {% include header.html %}
+
+<script type="text/javascript">
+
+    function clickhandle() {
+        $('#asin').val( $(this).parent().attr('asin'))
+        }
+    
+    $(document).ready(function(){
+
+        $('img').click( clickhandle);
+
+    });
+
+
+</script>
+
+</head>
+
+<body>
+
+<ul>
+    {% for d in datas %}
+    <li asin="{{d['asin']}}">
+    <img src="{{d['medium_url']}}" />
+    {{d['price']}} - {{d['title']}}
+    </li>
+    {% end %}
+</ul>
+
+
+<form method="POST" action=""> 
+    <input type="text" value="" name="asin" id="asin">
+    <input type="submit" value="CHOOSE">
+</form>
+
+{% include footer.html %}
+
+</body>
+
+</html>

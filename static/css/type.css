@@ -1,0 +1,71 @@
+body { font-family: Arial, Verdana }
+h1, h2, h3, h4, h5, h6 { font-family: Georgia, Times New Roman; font-weight: normal; letter-spacing: 1px }
+
+#content { margin-bottom: 40px }
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6 { padding-bottom: 10px }
+#content h1 { font-size: 26px }
+#content h2 { font-size: 24px }
+#content h3 { font-size: 22px }
+#content h4 { font-size: 20px }
+#content h5 { font-size: 18px }
+#content h6 { font-size: 16px }
+
+#content p { padding-bottom: 15px; line-height: 28px }
+
+#content a { color: #777; text-decoration: underline }
+    #content a:hover { color: #212121 }
+
+/* Header */    
+#branding { text-indent: -9999px; padding: 17px 0 40px }
+	#branding #logo { width: 221px; height: 47px; background: url(../images/logo.png) no-repeat }
+	#branding #logo a { width: 221px; height: 47px; z-index: 1; display: block }
+
+/* Navigation */
+#navMain { position: absolute; top: 0; right: 0; width: 700px; height: 54px; background: #535353; background: -moz-linear-gradient(center bottom,rgb(83,83,83) 0%,rgb(105,105,105) 60%); background: -webkit-gradient(linear, center bottom, center top, from(green), color-stop(50%,yellow), to(blue)); -moz-border-radius: 0 0 10px 10px; -webkit-border-radius: 0 0 10px 10px; border-radius: 0 0 10px 10px }
+    #navMain li { float: left; border-right: 2px solid #000 }
+    #navMain a { padding: 20px 0 0 20px; display: block; height: 34px; color: #fff; text-transform: uppercase }
+        #navMain a:hover { color: #fff }
+    li#navHome a { width: 98px }
+        #navHome a { background: url(../images/home.png) no-repeat 75px 50% }
+    li#navPack a { width: 141px }
+        #navPack a { background: url(../images/packages.png) no-repeat 118px 50% }
+    li#navAbout a { width: 105px }
+        #navAbout a { background: url(../images/about.png) no-repeat 88px 50% }
+    li#navContact a { width: 127px }
+        #navContact a { background: url(../images/contact.png) no-repeat 110px 50% }
+    li#navLogin { border: none }
+        li#navLogin a { padding: 10px 0 0 0; height: 24px; background: #444; font-size: 12px; text-align: center; width: 141px; display: block }
+    li#navCart { border: none }
+        li#navCart a { padding: 2px 0 0 0; height: 18px; font-size: 10px; display: block; width: 141px; text-align: center; }
+        
+
+
+
+
+
+
+/* Navigation */
+	
+
+
+
+
+
+#boxTab ul, #boxTab li{
+	margin:0;
+	padding:0;
+	list-style:none;
+	}
+#boxTab, #boxTab li{ 
+	width:618px;
+	height:253px;
+	overflow:hidden;
+	}
+#boxTab {
+    border: 1px solid #777;
+    margin-bottom: 70px
+}
+#prevBtn { position: absolute; top: 0 }
+#nextBtn { position: absolute; top: 0 }
+        
+#boxPromo { float: right; width: 300px; border: 1px solid #777; height: 253px }

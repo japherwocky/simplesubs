@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+{% include header.html %}
+
+
+<script src="/static/jquery.ui.core.js"></script>
+<script src="/static/jquery.ui.widget.js"></script>
+<script src="/static/jquery.ui.datepicker.js"></script>
+<link rel="stylesheet" href="/static/demos.css">
+
+<script type="text/javascript">
+    function good(data) { 
+        $('#estimate').html( data)
+        console.log( $('#estimate').html())
+        }
+    function bad() { console.log("EEP")}
+
+    function changehandle(thing) {
+        var args={
+            "freq": $(thing).parent().children( '.slider').val(),
+            "start": $(thing).parent().children( '.datepicker').val(),
+            "asin": $(thing).parent().parent().children( '.img').children('img').attr( 'asin'),
+            "category": $(thing).parent().parent().attr('cat'),
+            // "session": $('#session').attr('value'), // jQuery is sending the cookies along also
+            };
+
+        $.ajax( { url:'/cart', type:'POST', dataType:'text',
+                    data: $.param( args),
+                    success: good,
+                    error: bad,
+                    });
+        }
+    
+    $(document).ready(function(){
+
+        $( ".datepicker" ).datepicker();
+
+    });
+
+
+</script>
+
+
+</head>
+
+<body>
+
+<table>
+{% for category in ['shampoo', 'toilet paper', 'face wash', 'deodorant', 'soap', 'tampons'] %}
+    <tr cat="{{ category }}">
+        <td>{{ category.capitalize() }}</td>
+        <td class="img"> 
+            {% if category in cart %} 
+            <img src="{{ products[ cart[category].keys()[0] ]['medium_url'] }}" asin="{{products[ cart[category].keys()[0]]['asin']}}">
+            {% else %} 
+            <a href="/{{category}}/choose">Choose items</a> 
+            {% end %} 
+        </td>
+        <td> 
+            {% if category in cart %} 
+                freq: <input class="slider" type="text" value="{{cart[category].values()[0][0] or ''}}" onchange="changehandle(this)">
+                start: <input class="datepicker" type="text" value="{{cart[category].values()[0][1] or ''}}" onchange="changehandle(this)">
+            {% end %} 
+        </td>
+    </tr>
+{% end %}
+</table>
+
+<p>Monthly Cost: <span id="estimate">{{ price }}</span></p>
+
+{% include footer.html %}
+<a href="http://pearachute.com"><img src="http://pearachute.com/logo.png" style="margin:26px;"></a>
+</body>
+
+</html>

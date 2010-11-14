@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+{% include header.html %}
+
+<script type="text/javascript">
+
+    function clickhandle() {
+        $('#asin').val( $(this).parent().attr('asin'))
+        }
+    
+    $(document).ready(function(){
+
+        $('img').click( clickhandle);
+
+    });
+
+
+</script>
+
+
+</head>
+
+<body>
+
+<ul>
+    {% for d in datas %}
+    <li asin="{{d[0]}}" />
+    <img src="{{d[1]}}" />
+    {{d[2]}} - {{d[3]}}
+    </li>
+    {% end %}
+</ul>
+
+
+<form method="POST" action=""> 
+    ASIN: <input type="text" name="asin" id="asin" value=""> </br>
+    Category: <input type="category" name="category" value="">
+
+    <input type="submit" value="GO">
+</form>
+
+<hr>
+
+<a href="http://pearachute.com"><img src="http://pearachute.com/logo.png" style="margin:26px;"></a>
+</body>
+
+</html>
